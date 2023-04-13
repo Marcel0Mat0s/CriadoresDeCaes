@@ -5,7 +5,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Indicação de onde está a Bse de Dados
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//instruções para adicionar o serviço de acesso à base de dados(neste caso, SQL Server)
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();

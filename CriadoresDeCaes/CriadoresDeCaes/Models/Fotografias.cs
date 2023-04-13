@@ -1,4 +1,6 @@
-﻿namespace CriadoresDeCaes.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace CriadoresDeCaes.Models
 {
     /// <summary>
     /// Fotografias associadas aos cães
@@ -21,6 +23,22 @@
         /// Local onde a fotografia foi tirada
         /// </summary>
         public string Local { get; set;}
+
+        //******************************************************
+
+        /// <summary>
+        /// FK para identificar o Animal a quem pertence a Fotografia
+        /// </summary>
+        [ForeignKey(nameof(Animal))] // <=> [ForeignKey("Animal")]
+        public int AnimalFK { get; set;}
+        public Animais Animal { get; set;}
+        /*
+         * o uso de [anotadores] permite alterar o comportamento
+         * dos 'objetos' do nosso programa:
+         *  - atributos
+         *  - funções (métudos)
+         *  - classes
+         */
     }
     
 }
